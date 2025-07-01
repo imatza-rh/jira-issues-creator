@@ -19,6 +19,7 @@ jira_special_fields:
     originalStoryPoints: customfield_12314040 # Custom field ID for original story points
     storyPoints: customfield_12310243 # Custom field ID for story points
     sprint: customfield_12310940 # Custom field ID for the sprint field
+    AssignedTeam: customfield_12326540 # Custom field ID for the assigned team
     key_format_fields: {} # Define fields that require "key" format
     name_format_fields: {} # Define fields that require "name" format
 

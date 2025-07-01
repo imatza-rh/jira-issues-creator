@@ -339,9 +339,12 @@ class Jira:
                     custom_field_name = self.custom_field_mapping[field_name]
                     sprint_id = self.get_sprint_id_from_all_boards(jira_project, field_value)
                     issue_data['fields'][custom_field_name] = sprint_id
+                elif field_name == "AssignedTeam":
+                    # Handle AssignedTeam as a value-format field (select dropdown)
+                    custom_field_name = self.custom_field_mapping[field_name]
+                    issue_data['fields'][custom_field_name] = {"value": field_value}
                 else:
-                    issue_data['fields'][self.custom_field_mapping[field_name]
-                                        ] = field_value
+                    issue_data['fields'][self.custom_field_mapping[field_name]] = field_value
             elif field_name in self.custom_field_mapping.get('key_format_fields', {}):
                 # Custom fields that require 'key' format
                 custom_field_name = self.custom_field_mapping['key_format_fields'][field_name]
